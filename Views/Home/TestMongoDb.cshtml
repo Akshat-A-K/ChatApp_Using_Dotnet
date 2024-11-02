@@ -1,0 +1,12 @@
+﻿@model IEnumerable<ChatApp.Models.Message>
+
+<h2>Messages from MongoDB</h2>
+<ul>
+    @foreach (var msg in Model)
+    {
+        <li>Sendor: @msg.SenderId</li>
+        <li>Receiver: @msg.ReceiverId</li>
+        <li>@msg.MessageContent</li>
+        <li>@msg.Timestamp</li>
+    }
+</ul>
