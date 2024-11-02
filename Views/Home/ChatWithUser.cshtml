@@ -1,0 +1,17 @@
+﻿<!-- ChatWithUser.cshtml -->
+<h3>Chatting with @Model.ReceiverUsername</h3>
+<div id="chat-box">
+    @foreach (var message in Model.Messages)
+    {
+        <div>
+            <strong>@(message.SenderId == Model.SenderId ? "You" : @Model.ReceiverUsername):</strong>
+            <p>@message.MessageContent</p>
+        </div>
+    }
+</div>
+
+<form asp-action="SendMessage">
+    <input type="hidden" name="ReceiverId" value="@Model.ReceiverId" />
+    <textarea name="MessageContent" placeholder="Type a message"></textarea>
+    <button type="submit">Send</button>
+</form>
